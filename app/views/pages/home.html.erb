@@ -5,5 +5,5 @@
 <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
 
 <% if user_signed_in? %>
-    <%= link_to "Create Groups", "#" %>
+    <%= link_to "Create Groups", new_group_path %>
 <% end %>
