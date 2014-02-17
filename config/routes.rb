@@ -1,6 +1,7 @@
 Forder::Application.routes.draw do
   devise_for :users
   get 'new_group' => 'group#new'
+  post 'groups' => 'group#create'
 
 
   root "pages#home"
