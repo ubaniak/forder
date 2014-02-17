@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   def my_groups
       Group.joins(:group_members).where("user_id = ? and confirmed = ?", self.id, true)
   end
+
+  def my_invites
+      Group.joins(:group_members).where("user_id = ? and confirmed = ?", self.id, false)
+  end
 end

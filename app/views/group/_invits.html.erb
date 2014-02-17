@@ -1,0 +1,10 @@
+<ul>
+    <% @invits.each do |group| %>
+        <li>
+            <%= group.name %>
+            |
+            <%= link_to "Accept", '#' %>
+            <%= link_to "No thanks", '#' %>
+        </li>
+    <% end %>
+</ul>

@@ -20,6 +20,9 @@ class GroupController < ApplicationController
 
     def add_member
         @user = User.find_by_email(params[:email])
+        puts '----------------------------------------------------------'
+        puts params
+        puts '----------------------------------------------------------'
         @group_member = GroupMember.create!(:user => @user, :group_id => params[:group_id])
         redirect_to root_path, :note => "Invited user to group"
     end
