@@ -20,11 +20,22 @@ class GroupController < ApplicationController
 
     def add_member
         @user = User.find_by_email(params[:email])
-        puts '----------------------------------------------------------'
-        puts params
-        puts '----------------------------------------------------------'
-        @group_member = GroupMember.create!(:user => @user, :group_id => params[:group_id])
-        redirect_to root_path, :note => "Invited user to group"
+        if not GroupMember.invited?(params[:group_id], @user.id)
+            @group_member = GroupMember.create!(:user => @user, :group_id => params[:group_id])
+            redirect_to root_path, :notice => "Invited user to group"
+        else
+            redirect_to root_path, :notice => "User already has an invite"
+        end
+    end
+
+    def accept_invite
+        GroupMember.confirm_invite(params[:group_id], params[:user_id])
+        redirect_to root_path
+    end
+
+    def reject_invite
+        GroupMember.reject_invite(params[:group_id], params[:user_id])
+        redirect_to root_path
     end
 
     def group_params

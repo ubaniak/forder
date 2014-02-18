@@ -6,6 +6,9 @@ Forder::Application.routes.draw do
   post 'add_member' => 'group#add_member'
 
 
+  get "accept_invite" => "group#accept_invite"
+  get "reject_invite" => "group#reject_invite"
+
   root "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,8 +3,9 @@
         <li>
             <%= group.name %>
             |
-            <%= link_to "Accept", '#' %>
-            <%= link_to "No thanks", '#' %>
+            <%= link_to "Accept", accept_invite_path(:group_id => group.id, :user_id => current_user.id) %>
+            |
+            <%= link_to "No Thanks", reject_invite_path(:group_id => group.id, :user_id => current_user.id) %>
         </li>
     <% end %>
 </ul>
