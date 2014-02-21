@@ -10,6 +10,10 @@ class EventController < ApplicationController
     end
 
     def show
+        @event = Event.find(params[:id])
+    end
+
+    def add_place
     end
 
     def get_params

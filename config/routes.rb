@@ -12,13 +12,15 @@ Forder::Application.routes.draw do
   get "reject_invite" => "group#reject_invite"
 
   # places
-  get 'add_place' => 'place#new'
+  get 'new_place' => 'place#new'
   post 'places' => 'place#create'
 
   # event
   get "new_event" => "event#new"
   post 'events' => 'event#create'
   get "show_event/:id" => "event#show", as: :show_event
+
+  get "add_place" => "event#add_place"
 
   root "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
