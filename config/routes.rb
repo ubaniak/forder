@@ -15,6 +15,10 @@ Forder::Application.routes.draw do
   get 'add_place' => 'place#new'
   post 'places' => 'place#create'
 
+  # event
+  get "new_event" => "event#new"
+  post 'events' => 'event#create'
+
   root "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
