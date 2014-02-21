@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
   has_many :events, through: :groups
 
   def my_groups
-      Group.joins(:group_members).where("user_id = ? and confirmed = ?", self.id, true)
+      self.groups.where("group_members.confirmed = ?", true)
   end
 
   def my_invites
-      Group.joins(:group_members).where("user_id = ? and confirmed = ?", self.id, false)
+      self.groups.where("group_members.confirmed = ?", false)
   end
 
   def my_events
