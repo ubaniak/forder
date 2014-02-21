@@ -1,1 +1,5 @@
 <h1>Create event</h1>
+<%= form_for(@event) do |f| %>
+    <%= f.number_field :group_id %>
+    <%= f.submit %>
+<% end %>
