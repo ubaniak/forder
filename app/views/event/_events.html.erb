@@ -1,0 +1,8 @@
+<ul>
+    <% @events.each do |event| %>
+        <li>
+            <%= event.group_id %>
+            <%= link_to "Show", show_event_path(event) %>
+        </li>
+    <% end %>
+</ul>

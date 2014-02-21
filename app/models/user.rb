@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :groups
+  has_many :group_members
+  has_many :groups, through: :group_members
+  has_many :events, through: :groups
 
   def my_groups
       Group.joins(:group_members).where("user_id = ? and confirmed = ?", self.id, true)
@@ -12,5 +14,9 @@ class User < ActiveRecord::Base
 
   def my_invites
       Group.joins(:group_members).where("user_id = ? and confirmed = ?", self.id, false)
+  end
+
+  def my_events
+      self.events.where("open = ?", true)
   end
 end

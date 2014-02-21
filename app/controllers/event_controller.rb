@@ -9,6 +9,9 @@ class EventController < ApplicationController
         redirect_to root_path
     end
 
+    def show
+    end
+
     def get_params
         params.require(:event).permit(:group_id)
     end

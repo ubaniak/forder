@@ -18,6 +18,7 @@ Forder::Application.routes.draw do
   # event
   get "new_event" => "event#new"
   post 'events' => 'event#create'
+  get "show_event/:id" => "event#show", as: :show_event
 
   root "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
