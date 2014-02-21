@@ -4,5 +4,6 @@ class PagesController < ApplicationController
           @groups = current_user.my_groups
           @invits = current_user.my_invites
       end
+      @places = Place.all
   end
 end

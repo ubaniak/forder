@@ -6,10 +6,13 @@
 
 <% if user_signed_in? %>
     <%= link_to "Create Groups", new_group_path %>
+    <%= link_to "Add Place", add_place_path %>
 <%= render 'group/groups' %>
 <%= render 'group/invits' %>
 
 
 <%= current_user.email %>
 <% end %>
+
+<%= render 'place/places' %>
 

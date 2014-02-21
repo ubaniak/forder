@@ -1,5 +1,7 @@
 Forder::Application.routes.draw do
   devise_for :users
+
+  # groups
   get 'new_group' => 'group#new'
   post 'groups' => 'group#create'
   get 'invite_member/:id' => "group#invite_member", as: :invite_member
@@ -8,6 +10,10 @@ Forder::Application.routes.draw do
 
   get "accept_invite" => "group#accept_invite"
   get "reject_invite" => "group#reject_invite"
+
+  # places
+  get 'add_place' => 'place#new'
+  post 'places' => 'place#create'
 
   root "pages#home"
   # The priority is based upon order of creation: first created -> highest priority.
